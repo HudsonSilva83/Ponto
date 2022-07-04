@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 import org.apache.commons.mail.EmailException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.junit.jupiter.api.Test;
@@ -88,65 +89,64 @@ public class ApropriacaoTest {
 		String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
 		//String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
 		
-		tangerinoApropriacaoPage.preencherDataInicial("01/07/2022");
+		tangerinoApropriacaoPage.preencherDataInicial(data);
 		Thread.sleep(2000);
-		tangerinoApropriacaoPage.preencherDataFinal("01/07/2022");
+		tangerinoApropriacaoPage.preencherDataFinal(data);
 		tangerinoApropriacaoPage.butonCosultar();
 		Thread.sleep(2000);
 		
 		//esperar voltar o servidor
 	
 		String horaEntradaTrabalho = (tangerinoApropriacaoPage.obterHoraInicialEntrada());
-				
 		String horaSaidaAlmoco = (tangerinoApropriacaoPage.obterHoraSaidaAlmoco());
 				
-		String horaEntradaVolta = (tangerinoApropriacaoPage.obterHoraEntradaVolta());
-		String horaSaidaTrabalho = (tangerinoApropriacaoPage.obterHoraSaidaTrabalho());
-		System.out.println(horaEntradaVolta);
-		System.out.println(horaSaidaTrabalho);
+//		String horaEntradaVolta = (tangerinoApropriacaoPage.obterHoraEntradaVolta());
+//		String horaSaidaTrabalho = (tangerinoApropriacaoPage.obterHoraSaidaTrabalho());
+//		System.out.println(horaEntradaVolta);
+//		System.out.println(horaSaidaTrabalho);
 		
 		
 		//____________________________________________________________________//
 		//mudar de aba para a aplicacao apropriacao
 		
 			
-//		apropriacaoHomePage.acessarPaginaApropriacao(1,"https://app.frwkapp.com.br/apropriacao");
-//		apropriacaoHomePage.butonGoogle();
-//		Thread.sleep(3000);
-//		
-//		driver.switchTo().window((String) driver.getWindowHandles().toArray()[2]);
-//				
-//		apropriacaoHomePage.preencherEmail();
-//		apropriacaoHomePage.butonProximoGoogle();
-//		apropriacaoHomePage.preencher();
-//		apropriacaoHomePage.butonProximoGoogle2();
-//		
-//		Thread.sleep(5000);
-//		driver.switchTo().window((String) driver.getWindowHandles().toArray()[1]);
-//		
-//		Thread.sleep(5000);
-//		
-//		apropriacaoHomePage.scrollar();
-//		Thread.sleep(2000);
-//		apropriacaoPage.clicarComboCliente();
-//		Thread.sleep(2000);
-//		apropriacaoPage.clicarClienteAfya();
-//		Thread.sleep(3000);
-//		apropriacaoPage.clicarMenuProjeto();
-//		Thread.sleep(1000);
-//		apropriacaoPage.selecionarProjetoAfya();
-//		apropriacaoPage.clicarMenuTipoAtividade();
-//		Thread.sleep(1000);
-//		apropriacaoPage.opcaoMontagemAmbiente();
-//		apropriacaoPage.preencherAtividade("Automação app Conecta - Funcionalidade: Exame Admissional");
-//		apropriacaoPage.preencherHoraInicio(horaEntradaTrabalho);
-//		Thread.sleep(500);
-//		apropriacaoPage.preencherHoraFinal(horaSaidaAlmoco);
-//		
-//		Thread.sleep(1000);
-//		apropriacaoPage.botaoRegistrar();
-//		Thread.sleep(3000);
-//		String mensagem = (apropriacaoPage.obterTexto(By.xpath("/html/body/app-root/app-toast-notification/div/div")));
+		apropriacaoHomePage.acessarPaginaApropriacao(1,"https://app.frwkapp.com.br/apropriacao");
+		apropriacaoHomePage.butonGoogle();
+		Thread.sleep(3000);
+		
+		driver.switchTo().window((String) driver.getWindowHandles().toArray()[2]);
+				
+		apropriacaoHomePage.preencherEmail();
+		apropriacaoHomePage.butonProximoGoogle();
+		apropriacaoHomePage.preencher();
+		apropriacaoHomePage.butonProximoGoogle2();
+		
+		Thread.sleep(5000);
+		driver.switchTo().window((String) driver.getWindowHandles().toArray()[1]);
+		
+		Thread.sleep(5000);
+		
+		apropriacaoHomePage.scrollar();
+		Thread.sleep(2000);
+		apropriacaoPage.clicarComboCliente();
+		Thread.sleep(2000);
+		apropriacaoPage.clicarClienteAfya();
+		Thread.sleep(3000);
+		apropriacaoPage.clicarMenuProjeto();
+		Thread.sleep(1000);
+		apropriacaoPage.selecionarProjetoAfya();
+		apropriacaoPage.clicarMenuTipoAtividade();
+		Thread.sleep(1000);
+		apropriacaoPage.opcaoMontagemAmbiente();
+		apropriacaoPage.preencherAtividade("Automação app Conecta - Funcionalidade: Exame Admissional");
+		apropriacaoPage.preencherHoraInicio(horaEntradaTrabalho);
+		Thread.sleep(500);
+		apropriacaoPage.preencherHoraFinal(horaSaidaAlmoco);
+		
+		Thread.sleep(1000);
+		apropriacaoPage.botaoRegistrar();
+		Thread.sleep(3000);
+		String mensagem = (apropriacaoPage.obterTexto(By.xpath("/html/body/app-root/app-toast-notification/div/div")));
 //		
 //		
 //		//___________________________________________________
@@ -170,7 +170,7 @@ public class ApropriacaoTest {
 //		apropriacaoPage.botaoRegistrar();
 //		Thread.sleep(3000);
 //		String mensagemSegundo = (apropriacaoPage.obterTexto(By.xpath("/html/body/app-root/app-toast-notification/div/div")));
-//		
+		
 		
 		
 		
@@ -191,9 +191,9 @@ public class ApropriacaoTest {
 		
 		//Apropriação criada com sucesso.
 		
-//		NotificarPorEmailTest enviarEmail = new NotificarPorEmailTest();
-//		enviarEmail.EnviarEmail("Pontos registrados  "+ mensagemSegundo);
-//		
+		NotificarPorEmailTest enviarEmail = new NotificarPorEmailTest();
+		enviarEmail.EnviarEmail("Pontos registrados  "+ mensagem);
+		
 
 		
 		
