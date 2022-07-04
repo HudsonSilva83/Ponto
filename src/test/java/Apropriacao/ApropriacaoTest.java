@@ -189,7 +189,7 @@ public class ApropriacaoTest {
 		
 		
 		
-		//Apropriação criada com sucesso.
+		//Apropriação criada com sucesso.//mudei
 		
 		NotificarPorEmailTest enviarEmail = new NotificarPorEmailTest();
 		enviarEmail.EnviarEmail("Pontos registrados  "+ mensagem);
