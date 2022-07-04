@@ -5,13 +5,11 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.mail.EmailException;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.By;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import org.junit.jupiter.api.Test;
 
 
 
@@ -29,7 +27,7 @@ public class ApropriacaoTest {
 	
 
       //RODAR JENKINS A CADA 5 MINUTOS H/5 * * * *
-	@Before
+	@BeforeEach
 	public void inicializa() {
 
 		
@@ -250,7 +248,7 @@ public class ApropriacaoTest {
 
 	}
 
-	@After
+	@AfterEach
 	public void finalizar() {
 
 		//driver.quit();
