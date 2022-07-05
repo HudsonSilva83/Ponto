@@ -28,13 +28,13 @@ public class ApropriacaoTest {
 	public void inicializa() {
 
 
-//		driver = new ChromeDriver();
-//		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+		driver = new ChromeDriver();
+		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
 		
 		
-		
-		System.setProperty("webdriver.gecko.driver","C:\\geckodriver.exe");
-	       WebDriver driver = new FirefoxDriver();
+//		
+//		System.setProperty("webdriver.gecko.driver","C:\\geckodriver.exe");
+//	       WebDriver driver = new FirefoxDriver();
 //		
 	     //driver = new FirefoxDriver();
 		//System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
