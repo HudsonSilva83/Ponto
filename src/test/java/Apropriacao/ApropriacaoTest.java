@@ -27,6 +27,7 @@ public class ApropriacaoTest {
 	@BeforeEach
 	public void inicializa() {
 
+
 //		driver = new ChromeDriver();
 //		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
 		
@@ -39,12 +40,15 @@ public class ApropriacaoTest {
 		//System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
 		//System.setProperty("webdriver.gecko.driver", "C:\\Drivers\\geckodriver.exe");
 		
+	
 		
+		//driver = new ChromeDriver();
 		
-        
-        // se a propriedade acima não estiver funcionando ou não abrir o aplicativo no navegador, tente a propriedade abaixo
+		//driver = new FirefoxDriver();
+		//System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+		// System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
+		 //System.setProperty("webdriver.gecko.driver", "C:\\Drivers\\geckodriver.exe");
 
-       System.setProperty("webdriver.firefox.marionette","C:\\geckodriver.exe");
 
 		base = new BasePage(driver);
 		tangerinoApropriacaoPage = new TangerinoApropriacaoHorasPage(driver);
