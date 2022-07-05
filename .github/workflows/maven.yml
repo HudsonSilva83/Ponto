@@ -28,4 +28,4 @@ jobs:
 
       run: mvn -B package --file pom.xml
     - name: Rodar os testes
-      run: mvn clean test --batch-mode --update-snapshots verify  
+      run: mvn clean install --batch-mode --update-snapshots verify  
