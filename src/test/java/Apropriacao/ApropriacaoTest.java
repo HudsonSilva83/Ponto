@@ -160,25 +160,25 @@ public class ApropriacaoTest {
 		
 //		//___________________________________________________
 		
-//		apropriacaoPage.clicarComboCliente();
-//		Thread.sleep(2000);
-//		apropriacaoPage.clicarClienteAfya();
-//		Thread.sleep(3000);
-//		apropriacaoPage.clicarMenuProjeto();
-//		Thread.sleep(1000);
-//		apropriacaoPage.selecionarProjetoAfya();
-//		apropriacaoPage.clicarMenuTipoAtividade();
-//		Thread.sleep(1000);
-//		apropriacaoPage.opcaoMontagemAmbiente();
-//		apropriacaoPage.preencherAtividade("Automação app Conecta - Funcionalidade: Exame Admissional");
-//		apropriacaoPage.preencherHoraInicio(horaEntradaVolta);
-//		Thread.sleep(500);
-//		apropriacaoPage.preencherHoraFinal(horaSaidaTrabalho);
-//		
-//		Thread.sleep(1000);
-//		apropriacaoPage.botaoRegistrar();
-//		Thread.sleep(3000);
-//		String mensagemSegundo = (apropriacaoPage.obterTexto(By.xpath("/html/body/app-root/app-toast-notification/div/div")));
+		apropriacaoPage.clicarComboCliente();
+		Thread.sleep(2000);
+		apropriacaoPage.clicarClienteAfya();
+		Thread.sleep(3000);
+		apropriacaoPage.clicarMenuProjeto();
+		Thread.sleep(1000);
+		apropriacaoPage.selecionarProjetoAfya();
+		apropriacaoPage.clicarMenuTipoAtividade();
+		Thread.sleep(1000);
+		apropriacaoPage.opcaoMontagemAmbiente();
+		apropriacaoPage.preencherAtividade("Automação app Conecta - Funcionalidade: Exame Admissional");
+		apropriacaoPage.preencherHoraInicio(horaEntradaVolta);
+		Thread.sleep(500);
+		apropriacaoPage.preencherHoraFinal(horaSaidaTrabalho);
+		
+		Thread.sleep(1000);
+		apropriacaoPage.botaoRegistrar();
+		Thread.sleep(3000);
+		String mensagemSegundo = (apropriacaoPage.obterTexto(By.xpath("/html/body/app-root/app-toast-notification/div/div")));
 //
 //		// Apropriação criada com sucesso.//mudei
 //
@@ -205,7 +205,7 @@ public class ApropriacaoTest {
 		Thread.sleep(1000);
 		amazonHomePage.clicarHora();
 		Thread.sleep(500);
-		amazonHomePage.setarHora("14:10");
+		amazonHomePage.setarHora("18:46");
 		Thread.sleep(500);
 		amazonHomePage.enterHora();
 		Thread.sleep(500);
