@@ -46,7 +46,7 @@ public class NotificarPorEmailTest {
 		
 		email.setSSLOnConnect(true);
 		email.setFrom("t800.hma@gmail.com");
-		email.setSubject("Teste Email");
+		email.setSubject("Apropriacao Diaria");
 		email.setMsg(motivo);
 		email.addTo("hu.psilva@gmail.com");
 		//email.addTo("marianna.angelica@hotmail.com");

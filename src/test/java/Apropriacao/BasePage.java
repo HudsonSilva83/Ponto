@@ -6,8 +6,11 @@ import java.util.ArrayList;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
@@ -24,11 +27,16 @@ public class BasePage {
 		@SuppressWarnings("deprecation")
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.presenceOfElementLocated(by));
-		driver.findElement(by).clear();
+		//driver.findElement(by).clear();
 		driver.findElement(by).sendKeys(texto);
 
 	}
 
+	
+
+	
+	
+	
 	public void escrever(String id_campo, String texto) {
 		
 		@SuppressWarnings("deprecation")
@@ -125,6 +133,9 @@ public class BasePage {
 
 	public void clicarId(String x) {
 
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.id(x)));
+		
 		driver.findElement(By.id(x)).click();
 
 	}
@@ -189,13 +200,26 @@ public class BasePage {
 
 	}
 
-	public void javaClicar() {
+	public void javaClicarData01() {
 
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		jse.executeScript("document.querySelector('input[type=\"checkbox\"]').click();");
+		//jse.executeScript("document.querySelector('input[type=\"checkbox\"]').click();");
 		jse.executeScript("document.querySelector('button[class=\"edit-button\"]').click();");
 
 	}
+	
+	
+	
+	public void javaClicarData02() {
+
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		
+		jse.executeScript("document.querySelector('button[class=\"edit-button\"]').click();");
+
+	}
+	
+	
+	
 
 	public void javaClicar2() {
 
@@ -212,5 +236,31 @@ public class BasePage {
 		
 		
 	}
+	
+	
+	public void enter(By by) {
+		
+		WebElement enter = driver.findElement(by);
+//		enter.sendKeys(Keys.TAB);
+//		enter.sendKeys(Keys.TAB);
+		enter.sendKeys(Keys.ENTER);
+		
+	}
+	
+	
+	public void selectCombo(By by) {
+		
+		
+		
+		WebElement elemnt = driver.findElement(by);
+		
+     	Select combo = new Select(elemnt);
+		//combo.selectByValue("G8M11M11032107V0");
+		combo.selectByVisibleText("Casa Hudson");
+		
+		
+	}
+	
+	
 
 }

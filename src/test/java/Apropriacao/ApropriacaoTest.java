@@ -10,13 +10,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.junit.jupiter.api.Test;
 
-
-
 public class ApropriacaoTest {
-	
-	
 
 	private WebDriver driver;
 	private BasePage base;
@@ -25,19 +22,29 @@ public class ApropriacaoTest {
 	private ApropriacaoHomePage apropriacaoHomePage;
 	private ApropriacaoPage apropriacaoPage;
 	private AmazonHomePage amazonHomePage;
-	
 
-      //RODAR JENKINS A CADA 5 MINUTOS H/5 * * * *
+	// RODAR JENKINS A CADA 5 MINUTOS H/5 * * * *
 	@BeforeEach
 	public void inicializa() {
 
+//		driver = new ChromeDriver();
+//		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
 		
-		driver = new ChromeDriver();
 		
-		//driver = new FirefoxDriver();
-		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
-		// System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
-		 //System.setProperty("webdriver.gecko.driver", "C:\\Drivers\\geckodriver.exe");
+		
+		System.setProperty("webdriver.gecko.driver","C:\\geckodriver.exe");
+	       WebDriver driver = new FirefoxDriver();
+//		
+	     //driver = new FirefoxDriver();
+		//System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
+		//System.setProperty("webdriver.gecko.driver", "C:\\Drivers\\geckodriver.exe");
+		
+		
+		
+        
+        // se a propriedade acima não estiver funcionando ou não abrir o aplicativo no navegador, tente a propriedade abaixo
+
+       System.setProperty("webdriver.firefox.marionette","C:\\geckodriver.exe");
 
 		base = new BasePage(driver);
 		tangerinoApropriacaoPage = new TangerinoApropriacaoHorasPage(driver);
@@ -45,11 +52,11 @@ public class ApropriacaoTest {
 		apropriacaoHomePage = new ApropriacaoHomePage(driver);
 		apropriacaoPage = new ApropriacaoPage(driver);
 		amazonHomePage = new AmazonHomePage(driver);
-		
 
 		base.aumentarTela();
-		base.acessarPagina("https://app.tangerino.com.br/Tangerino/pages/apropriacao-horas?funcionalidade=5&wicket:pageMapName=wicket-0");
-		//base.acessarPagina("https://amazon.com.br");
+		base.acessarPagina(
+				"https://app.tangerino.com.br/Tangerino/pages/apropriacao-horas?funcionalidade=5&wicket:pageMapName=wicket-0");
+		// base.acessarPagina("https://amazon.com.br");
 		driver.manage().timeouts().implicitlyWait(190, TimeUnit.SECONDS);
 		// driver.get();
 
@@ -87,29 +94,27 @@ public class ApropriacaoTest {
 		
 		Date dataHoraAtual = new Date();
 		String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
-		//String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
-		
+		String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
+
 		tangerinoApropriacaoPage.preencherDataInicial(data);
 		Thread.sleep(2000);
 		tangerinoApropriacaoPage.preencherDataFinal(data);
 		tangerinoApropriacaoPage.butonCosultar();
 		Thread.sleep(2000);
-		
-		//esperar voltar o servidor
-	
+
+		// esperar voltar o servidor
+
 		String horaEntradaTrabalho = (tangerinoApropriacaoPage.obterHoraInicialEntrada());
 		String horaSaidaAlmoco = (tangerinoApropriacaoPage.obterHoraSaidaAlmoco());
 				
-//		String horaEntradaVolta = (tangerinoApropriacaoPage.obterHoraEntradaVolta());
-//		String horaSaidaTrabalho = (tangerinoApropriacaoPage.obterHoraSaidaTrabalho());
+		String horaEntradaVolta = (tangerinoApropriacaoPage.obterHoraEntradaVolta());
+		String horaSaidaTrabalho = (tangerinoApropriacaoPage.obterHoraSaidaTrabalho());
 //		System.out.println(horaEntradaVolta);
 //		System.out.println(horaSaidaTrabalho);
-		
-		
-		//____________________________________________________________________//
-		//mudar de aba para a aplicacao apropriacao
-		
-			
+
+		// ____________________________________________________________________//
+		// mudar de aba para a aplicacao apropriacao
+
 		apropriacaoHomePage.acessarPaginaApropriacao(1,"https://app.frwkapp.com.br/apropriacao");
 		apropriacaoHomePage.butonGoogle();
 		Thread.sleep(3000);
@@ -147,10 +152,10 @@ public class ApropriacaoTest {
 		apropriacaoPage.botaoRegistrar();
 		Thread.sleep(3000);
 		String mensagem = (apropriacaoPage.obterTexto(By.xpath("/html/body/app-root/app-toast-notification/div/div")));
-//		
-//		
+		
+		
 //		//___________________________________________________
-//		
+		
 //		apropriacaoPage.clicarComboCliente();
 //		Thread.sleep(2000);
 //		apropriacaoPage.clicarClienteAfya();
@@ -170,88 +175,48 @@ public class ApropriacaoTest {
 //		apropriacaoPage.botaoRegistrar();
 //		Thread.sleep(3000);
 //		String mensagemSegundo = (apropriacaoPage.obterTexto(By.xpath("/html/body/app-root/app-toast-notification/div/div")));
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		//Apropriação criada com sucesso.//mudei
-		
-		NotificarPorEmailTest enviarEmail = new NotificarPorEmailTest();
-		enviarEmail.EnviarEmail("Pontos registrados  "+ mensagem);
+//
+//		// Apropriação criada com sucesso.//mudei
+//
+//		NotificarPorEmailTest enviarEmail = new NotificarPorEmailTest();
+//		enviarEmail.EnviarEmail("Pontos registrados  "+ mensagem);
 		
 
-		
-		
-		
-		
-		
-		
-		
-		
-//		amazonHomePage.acessarPaginaAmazon(2,"https://alexa.amazon.com.br/");
-//	    amazonHomePage.autenticarAmazon();
-		
-		//Thread.sleep(5000);
-		
-		
-		//dsl.clicarId("iTimersAndAlarms");
-		//dsl.clicar("a[class=\"standard-component image-text-nav\"]");
+		// horas configurar jenkins
+		// https://stackoverflow.com/questions/12472645/how-do-i-schedule-jobs-in-jenkins?answertab=trending#tab-top
 
-		//Thread.sleep(5000);
+		amazonHomePage.acessarPaginaAmazon(1, "https://alexa.amazon.com.br/");
+		amazonHomePage.autenticarAmazon();
+		Thread.sleep(7000);
+		amazonHomePage.clicarMenuLembretesAlarme();
+		Thread.sleep(1000);
+		amazonHomePage.butonAdicionarLembretes();
+		amazonHomePage.escreverlembrete("Oi Hudson Hoje o seu ponto foi registrado com sucesso com a seguinte mensagem "+ mensagem);
+		amazonHomePage.clicarData();
+		// Thread.sleep(3000);
+		// amazonHomePage.enterData();
+		Thread.sleep(3000);
 
-		//dsl.escreverCss("input[class=\"input input-edit\"]",
-				//"Agendamento Salão de festas realizado com sucesso para Anna Clara para o dia 16/04/2022"
-						//+ Keys.TAB);
-
-		// tem que ver dsl pra javascript
-
-		//dsl.javaClicar();
-//			JavascriptExecutor jse = (JavascriptExecutor) driver;
-//			jse.executeScript("document.querySelector('input[type=\"checkbox\"]').click();");
-//			jse.executeScript("document.querySelector('button[class=\"edit-button\"]').click();");
-
-		// https://www.ti-enxame.com/pt/java/como-verificar-o-elemento-presente-ou-visivel-no-selenium-2-selenium-webdriver/1069795196/
-//			SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-		// Date hora = Calendar.getInstance().getTime();
-
-//			Calendar datat = Calendar.getInstance();
-//			int hora = datat.get(Calendar.HOUR_OF_DAY);
-//			int min = datat.get(Calendar.MINUTE);
-
-//			String curTime = String.format("%02d:%02d", hora, min);
-//			String curTime2 = String.format("%02d", min);
-//			System.out.println(curTime2);
-
-		// jse.executeScript("document.querySelector('button[class=\"edit-button\"]').click();");
-		//dsl.javaClicar2();
-
-		//Thread.sleep(2000);
-
-		//dsl.clicarId("reminderSaveButton");
-		
-	
+		amazonHomePage.clicarHora();
+		Thread.sleep(1000);
+		amazonHomePage.clicarHora();
+		Thread.sleep(500);
+		amazonHomePage.setarHora("14:10");
+		Thread.sleep(500);
+		amazonHomePage.enterHora();
+		Thread.sleep(500);
+		amazonHomePage.clicaComboselect();
+		Thread.sleep(500);
+		amazonHomePage.select();
+		Thread.sleep(1000);
+		amazonHomePage.butonSalvar();
 
 	}
 
 	@AfterEach
 	public void finalizar() {
 
-		//driver.quit();
+		driver.quit();
 
 	}
 }
