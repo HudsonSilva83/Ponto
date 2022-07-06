@@ -28,6 +28,6 @@ jobs:
 
       run: mvn -B package --file pom.xml
     - name: Rodar os testes
-      run: mvn clean test 
+      run: mvn test 
 
     
