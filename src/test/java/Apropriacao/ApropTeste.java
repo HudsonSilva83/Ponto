@@ -1,5 +1,4 @@
 package Apropriacao;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -7,13 +6,13 @@ import java.util.concurrent.TimeUnit;
 import org.apache.commons.mail.EmailException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.junit.jupiter.api.Test;
+import org.openqa.selenium.chrome.ChromeOptions;
 
-public class ApropriacaoTest {
+public class ApropTeste {
 
 	private WebDriver driver;
 	private BasePage base;
@@ -29,13 +28,27 @@ public class ApropriacaoTest {
 
 
 		//driver = new ChromeDriver();
-		//System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("headless");
+		driver = new ChromeDriver(options);
+		
+		 
+		//System.setProperty("webdriver.gecko.driver","C:\\geckodriver.exe");
+		//driver = new FirefoxDriver();
+	       
+	     
+//		
+
+		driver = new ChromeDriver();
+		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
 		
 		
-//		
-		System.setProperty("webdriver.gecko.driver","C:\\geckodriver.exe");
-	       WebDriver driver = new FirefoxDriver();
-//		
+		
+		//System.setProperty("webdriver.gecko.driver","C:\\geckodriver.exe");
+	     //driver = new FirefoxDriver();
+		
+
 	     //driver = new FirefoxDriver();
 		//System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
 		//System.setProperty("webdriver.gecko.driver", "C:\\Drivers\\geckodriver.exe");
