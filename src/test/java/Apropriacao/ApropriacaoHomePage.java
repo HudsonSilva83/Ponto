@@ -1,20 +1,28 @@
 package Apropriacao;
 
+import java.time.Duration;
 import java.util.ArrayList;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 
 
 public class ApropriacaoHomePage extends BasePage{
 	
+	
 	private WebDriver driver;
 
 	public ApropriacaoHomePage(WebDriver driver) {
 		super(driver);
-		// TODO Auto-generated constructor stub
+		
+		
 	}
 	
 	public void acessarPaginaApropriacao(int valor, String url) {
@@ -32,6 +40,10 @@ public class ApropriacaoHomePage extends BasePage{
 	}
 
 	public void butonGoogle() {
+		
+		
+		//WebDriverWait wait = new WebDriverWait(driver, 10);
+		//wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("body > app-root > app-login > div > div > form > div:nth-child(1) > button")));
 		clicar(By.cssSelector("body > app-root > app-login > div > div > form > div:nth-child(1) > button"));
 		
 	}
@@ -39,13 +51,17 @@ public class ApropriacaoHomePage extends BasePage{
 	
 	public void preencherEmail() {
 		
-		
-		escrever(By.id("identifierId"), "hudsonsilva@frwk.com.br");
+		//clicar(By.id("identifierId"));
+		//escrever(By.id("identifierId"), "hudsonsilva@frwk.com.br");
+		escrever(By.xpath("//input[@id='identifierId']"), "hudsonsilva@frwk.com.br");
 		
 		
 	}
 
 	public void butonProximoGoogle() {
+		
+	
+		
 		clicar(By.xpath("//*[@id=\"identifierNext\"]/div/button/span"));
 		
 	} 
