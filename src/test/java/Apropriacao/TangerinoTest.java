@@ -39,30 +39,30 @@ public class TangerinoTest {
 	
 		
 		
-//		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
-//		ChromeOptions options = new ChromeOptions();
-//		options.addArguments("--start-maximized");
-//		options.addArguments("disable-infobars");
-//		options.addArguments("--disable-extensions");
-//		options.addArguments("--headless");
-//		options.addArguments("disable-popup-blocking");
-//		
-//		options.addArguments("-disable-gpu");
-//		
+		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--start-maximized");
+		options.addArguments("disable-infobars");
+		options.addArguments("--disable-extensions");
+		options.addArguments("--headless");
+		options.addArguments("disable-popup-blocking");
 		
-		//driver = new ChromeDriver(options);
+		options.addArguments("-disable-gpu");
+		
+		
+		driver = new ChromeDriver(options);
 		//driver = new ChromeDriver();
 
 		
 		
 		
 	    //driver = new FirefoxDriver();
-			System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
+			// System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
 		
 		
-			FirefoxOptions options = new FirefoxOptions();
-			options.addArguments("--headless");
-			driver = new FirefoxDriver(options);
+			// FirefoxOptions options = new FirefoxOptions();
+			// options.addArguments("--headless");
+			// driver = new FirefoxDriver(options);
 			//driver = new FirefoxDriver();
 		
 		
@@ -81,65 +81,63 @@ public class TangerinoTest {
 		amazonHomePage = new AmazonHomePage(driver);
 		
 		
-		
-		
         tangerinoHomePage.scrollar();
 		
 		tangerinoHomePage.menuColaborador();
 		Thread.sleep(1000);
-//		
-//		
-//		tangerinoHomePage.preencherCodigoColaborador("3N11P");
-//		tangerinoHomePage.preencherPinColaborador("1000");
-//		tangerinoHomePage.botaoLogar();
-//		
-//		Thread.sleep(3000);
-//		tangerinoApropriacaoPage.menuColaboradores();
-//		
-//		Thread.sleep(2000);
-//		
-//		tangerinoApropriacaoPage.subMenuApropriacaoHoras();
-//		
-//		Thread.sleep(3000);
-//		tangerinoHomePage.scrollar();
-//		Thread.sleep(2000);
-//		
-//		Date dataHoraAtual = new Date();
-//		String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
-//		String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
-//
-//		
-//		
-//		tangerinoApropriacaoPage.preencherDataInicial(data);
-//		Thread.sleep(3000);
-//		
-//		
-//		
-//		tangerinoApropriacaoPage.preencherDataFinal(data);
-//		Thread.sleep(2000);
-//		tangerinoApropriacaoPage.butonCosultar();
-//		Thread.sleep(2000);
+		
+		
+		tangerinoHomePage.preencherCodigoColaborador("3N11P");
+		tangerinoHomePage.preencherPinColaborador("1000");
+		tangerinoHomePage.botaoLogar();
+		
+		Thread.sleep(3000);
+		tangerinoApropriacaoPage.menuColaboradores();
+		
+		Thread.sleep(2000);
+		
+		tangerinoApropriacaoPage.subMenuApropriacaoHoras();
+		
+		Thread.sleep(3000);
+		tangerinoHomePage.scrollar();
+		Thread.sleep(2000);
+		
+		Date dataHoraAtual = new Date();
+		String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
+		String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
+
+		
+		
+		tangerinoApropriacaoPage.preencherDataInicial(data);
+		Thread.sleep(3000);
+		
+		
+		
+		tangerinoApropriacaoPage.preencherDataFinal(data);
+		Thread.sleep(2000);
+		tangerinoApropriacaoPage.butonCosultar();
+		Thread.sleep(2000);
 
 		// esperar voltar o servidor
 
 
 		//ate aqui ok
 		
-//		String horaEntradaTrabalho = (tangerinoApropriacaoPage.obterHoraInicialEntrada());
-//		String horaSaidaAlmoco = (tangerinoApropriacaoPage.obterHoraSaidaAlmoco());
-//				
-//		String horaEntradaVolta = (tangerinoApropriacaoPage.obterHoraEntradaVolta());
-//		String horaSaidaTrabalho = (tangerinoApropriacaoPage.obterHoraSaidaTrabalho());
-//
-//		System.out.println(horaEntradaTrabalho);
-//		System.out.println(horaSaidaAlmoco);
-//		System.out.println(horaEntradaVolta);
-//		System.out.println(horaSaidaTrabalho);
+		String horaEntradaTrabalho = (tangerinoApropriacaoPage.obterHoraInicialEntrada());
+		String horaSaidaAlmoco = (tangerinoApropriacaoPage.obterHoraSaidaAlmoco());
+				
+		String horaEntradaVolta = (tangerinoApropriacaoPage.obterHoraEntradaVolta());
+		String horaSaidaTrabalho = (tangerinoApropriacaoPage.obterHoraSaidaTrabalho());
+
+		System.out.println(horaEntradaTrabalho);
+		System.out.println(horaSaidaAlmoco);
+		System.out.println(horaEntradaVolta);
+		System.out.println(horaSaidaTrabalho);
 		
 	//----------------Apropriacao -------------------------
 		
 		
-		apropriacaoHomePage.acessarPaginaApropriacao(1,"https://app.frwkapp.com.br/apropriacao");
+		//apropriacaoHomePage.acessarPaginaApropriacao(1,"https://app.frwkapp.com.br/apropriacao");
 		
 //		((JavascriptExecutor) driver).executeScript("window.open()");
 //		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
@@ -148,24 +146,24 @@ public class TangerinoTest {
 		
 		
 	
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 		
 		
 		
 		
-		apropriacaoHomePage.butonGoogle();
-		Thread.sleep(3000);
+		// apropriacaoHomePage.butonGoogle();
+		// Thread.sleep(3000);
 		
-		driver.switchTo().window((String) driver.getWindowHandles().toArray()[2]);
+		// driver.switchTo().window((String) driver.getWindowHandles().toArray()[2]);
 		
-		//driver.manage().window().maximize();
+		// //driver.manage().window().maximize();
 		
-		Thread.sleep(2000);
-		WebElement firstResult = new WebDriverWait(driver, Duration.ofSeconds(50))
-		        .until(ExpectedConditions.presenceOfElementLocated(By.id("identifierId")));
+		// Thread.sleep(2000);
+		// WebElement firstResult = new WebDriverWait(driver, Duration.ofSeconds(50))
+		//         .until(ExpectedConditions.presenceOfElementLocated(By.id("identifierId")));
 		
-		System.out.println(driver.getWindowHandles());
-		System.out.println(driver.getWindowHandle());
+		// System.out.println(driver.getWindowHandles());
+		// System.out.println(driver.getWindowHandle());
 		
 		
 		
@@ -182,43 +180,43 @@ public class TangerinoTest {
 	
 		
 		
-		apropriacaoHomePage.preencherEmail();
-		Thread.sleep(2000);
-		apropriacaoHomePage.butonProximoGoogle();
-		Thread.sleep(2000);
-		apropriacaoHomePage.preencher();
-		apropriacaoHomePage.butonProximoGoogle2();
+		// apropriacaoHomePage.preencherEmail();
+		// Thread.sleep(2000);
+		// apropriacaoHomePage.butonProximoGoogle();
+		// Thread.sleep(2000);
+		// apropriacaoHomePage.preencher();
+		// apropriacaoHomePage.butonProximoGoogle2();
 		
-		Thread.sleep(5000);
-		driver.switchTo().window((String) driver.getWindowHandles().toArray()[1]);
+		// Thread.sleep(5000);
+		// driver.switchTo().window((String) driver.getWindowHandles().toArray()[1]);
 		
-		Thread.sleep(5000);
+		// Thread.sleep(5000);
 		
-		apropriacaoHomePage.scrollar();
-		Thread.sleep(2000);
-		apropriacaoPage.clicarComboCliente();
-		Thread.sleep(2000);
-		apropriacaoPage.clicarClienteAfya();
-		Thread.sleep(3000);
-		apropriacaoPage.clicarMenuProjeto();
-		Thread.sleep(1000);
-		apropriacaoPage.selecionarProjetoAfya();
-		apropriacaoPage.clicarMenuTipoAtividade();
-		Thread.sleep(1000);
-		apropriacaoPage.opcaoMontagemAmbiente();
-		apropriacaoPage.preencherAtividade("Automação app Conecta - Funcionalidade: Exame Admissional");
-		//apropriacaoPage.preencherHoraInicio(horaEntradaTrabalho);
-		apropriacaoPage.preencherHoraInicio("01:00");
+		// apropriacaoHomePage.scrollar();
+		// Thread.sleep(2000);
+		// apropriacaoPage.clicarComboCliente();
+		// Thread.sleep(2000);
+		// apropriacaoPage.clicarClienteAfya();
+		// Thread.sleep(3000);
+		// apropriacaoPage.clicarMenuProjeto();
+		// Thread.sleep(1000);
+		// apropriacaoPage.selecionarProjetoAfya();
+		// apropriacaoPage.clicarMenuTipoAtividade();
+		// Thread.sleep(1000);
+		// apropriacaoPage.opcaoMontagemAmbiente();
+		// apropriacaoPage.preencherAtividade("Automação app Conecta - Funcionalidade: Exame Admissional");
+		// //apropriacaoPage.preencherHoraInicio(horaEntradaTrabalho);
+		// apropriacaoPage.preencherHoraInicio("01:00");
 		
-		Thread.sleep(500);
-		//apropriacaoPage.preencherHoraFinal(horaSaidaAlmoco);
-		apropriacaoPage.preencherHoraFinal("01:30");
+		// Thread.sleep(500);
+		// //apropriacaoPage.preencherHoraFinal(horaSaidaAlmoco);
+		// apropriacaoPage.preencherHoraFinal("01:30");
 		
-		Thread.sleep(1000);
-		apropriacaoPage.botaoRegistrar();
-		Thread.sleep(3000);
-		String mensagem = (apropriacaoPage.obterTexto(By.xpath("/html/body/app-root/app-toast-notification/div/div")));
-		System.out.println(mensagem);
+		// Thread.sleep(1000);
+		// apropriacaoPage.botaoRegistrar();
+		// Thread.sleep(3000);
+		// String mensagem = (apropriacaoPage.obterTexto(By.xpath("/html/body/app-root/app-toast-notification/div/div")));
+		// System.out.println(mensagem);
 		
 		
 		
@@ -227,7 +225,7 @@ public class TangerinoTest {
 	@AfterEach
 	public void finalizar() {
 
-		//driver.quit();
+		driver.quit();
 
 	}
 }
