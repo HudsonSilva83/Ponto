@@ -24,8 +24,8 @@ jobs:
         settings-path: ${{ github.workspace }} 
     - name: Install Google Chrome 
       run: |
-
-            chmod +x ./scripts/InstallChrome.sh
+  
+            chmod +x google-chrome-stable_current_amd64. deb
 
                           ./scripts/InstallChrome.sh
     - name: Build with Maven
