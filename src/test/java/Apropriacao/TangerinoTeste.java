@@ -21,7 +21,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.junit.jupiter.api.Test;
 
-public class TangerinoTest {
+public class TangerinoTeste {
 
 	private WebDriver driver;
 	private BasePage base;
@@ -36,10 +36,12 @@ public class TangerinoTest {
 	@BeforeEach
 	public void inicializa() {
 
-	
+		//System.setProperty("webdriver.chrome.driver", "local/do/chromedriver/no/SISTEMA"); 
 		
 		
 		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+
+	
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--start-maximized");
 		options.addArguments("disable-infobars");
@@ -48,9 +50,12 @@ public class TangerinoTest {
 		options.addArguments("disable-popup-blocking");
 		
 		options.addArguments("-disable-gpu");
-		
-		
+
 		driver = new ChromeDriver(options);
+		
+	
+		
+		
 		//driver = new ChromeDriver();
 
 		
@@ -71,9 +76,11 @@ public class TangerinoTest {
 	@Test
 	public void AbrirTagerino() throws InterruptedException, EmailException {
 
+		
+   
 		driver.get("https://app.tangerino.com.br/Tangerino/pages/apropriacao-horas?funcionalidade=5&wicket:pageMapName=wicket-0");
 		
-		//base = new BasePage(driver);
+		base = new BasePage(driver);
 		tangerinoApropriacaoPage = new TangerinoApropriacaoHorasPage(driver);
 		tangerinoHomePage = new TangerinoHomePage(driver);
 		apropriacaoHomePage = new ApropriacaoHomePage(driver);
