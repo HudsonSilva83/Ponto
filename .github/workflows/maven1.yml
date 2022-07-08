@@ -11,7 +11,7 @@ on:
 jobs:
   build:
 
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: browser-actions/setup-chrome@latest
@@ -27,4 +27,4 @@ jobs:
 
 
     - name: Build with Maven
-      run: mvn -B package --file pom.xml test
+      run: mvn test -B package --file pom.xml test
