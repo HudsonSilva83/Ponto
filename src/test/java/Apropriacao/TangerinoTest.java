@@ -163,9 +163,9 @@ public class TangerinoTest {
 		Thread.sleep(5000);
 
 		apropriacaoHomePage.scrollar();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		apropriacaoPage.clicarComboCliente();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		apropriacaoPage.clicarClienteAfya();
 		Thread.sleep(3000);
 		apropriacaoPage.clicarMenuProjeto();
@@ -193,7 +193,7 @@ public class TangerinoTest {
 	@AfterEach
 	public void finalizar() {
 
-		driver.quit();
+		//driver.quit();
 
 	}
 }

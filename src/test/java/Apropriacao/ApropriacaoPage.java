@@ -1,6 +1,7 @@
 package Apropriacao;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import javax.print.attribute.standard.Fidelity;
 import javax.swing.text.AbstractDocument.AbstractElement;
@@ -22,6 +23,9 @@ public class ApropriacaoPage extends BasePage {
 
 	public void clicarComboCliente() {
 
+		
+		
+		
 		clicar(By.cssSelector("input[role=\"combobox\"]"));
 		// clicar(By.id("a70f66f8c00c"));
 	}
