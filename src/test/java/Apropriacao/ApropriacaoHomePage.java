@@ -51,9 +51,9 @@ public class ApropriacaoHomePage extends BasePage{
 	
 	public void preencherEmail() {
 		
-		//clicar(By.id("identifierId"));
-		//escrever(By.id("identifierId"), "hudsonsilva@frwk.com.br");
-		escrever(By.xpath("//input[@id='identifierId']"), "hudsonsilva@frwk.com.br");
+		clicar(By.id("identifierId"));
+		escrever(By.id("identifierId"), "hudsonsilva@frwk.com.br");
+		//escrever(By.xpath("//input[@id='identifierId']"), "hudsonsilva@frwk.com.br");
 		
 		
 	}

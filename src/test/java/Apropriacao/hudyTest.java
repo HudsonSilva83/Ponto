@@ -30,17 +30,13 @@ public class hudyTest {
     	ChromeOptions options = new ChromeOptions();
 
     	 options.addArguments("--no-sandbox");
-
     	 options.addArguments("--disable-dev-shm-usage");
-
     	 options.addArguments("--headless");
 
-    	 driver = new ChromeDriver(options);
+    	 driver = new ChromeDriver();
    
     driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);  
-   
     driver.manage().window().maximize();  
-   
     driver.get(baseUrl);
     
    
