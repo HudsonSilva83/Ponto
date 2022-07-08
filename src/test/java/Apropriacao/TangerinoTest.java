@@ -163,6 +163,8 @@ public class TangerinoTest {
 		Thread.sleep(5000);
 
 		apropriacaoHomePage.scrollar();
+		
+		System.out.println("HUDSON " + driver.getWindowHandle());
 		Thread.sleep(4000);
 		apropriacaoPage.clicarComboCliente();
 		Thread.sleep(4000);
