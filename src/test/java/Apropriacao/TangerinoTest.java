@@ -46,7 +46,7 @@ public class TangerinoTest {
 		 options.addArguments("--no-sandbox");
     	 options.addArguments("--disable-dev-shm-usage");
     	 options.addArguments("--headless");
-    	 driver = new ChromeDriver();
+    	 driver = new ChromeDriver(options);
     	 driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);  
     	 driver.manage().window().maximize();  
 
@@ -150,7 +150,7 @@ public class TangerinoTest {
 	//----------------Apropriacao -------------------------
 		
 		
-		apropriacaoHomePage.acessarPaginaApropriacao(1,"https://app.frwkapp.com.br/apropriacao");
+		//apropriacaoHomePage.acessarPaginaApropriacao(1,"https://app.frwkapp.com.br/apropriacao");
 		
 //		((JavascriptExecutor) driver).executeScript("window.open()");
 //		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
@@ -159,15 +159,15 @@ public class TangerinoTest {
 		
 		
 	
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 		
 		
 		
 		
-		 apropriacaoHomePage.butonGoogle();
-		 Thread.sleep(3000);
+		 //apropriacaoHomePage.butonGoogle();
+		// Thread.sleep(3000);
 		
-		 driver.switchTo().window((String) driver.getWindowHandles().toArray()[2]);
+		// driver.switchTo().window((String) driver.getWindowHandles().toArray()[2]);
 		
 		// //driver.manage().window().maximize();
 		
@@ -175,7 +175,7 @@ public class TangerinoTest {
 		// WebElement firstResult = new WebDriverWait(driver, Duration.ofSeconds(50))
 		//         .until(ExpectedConditions.presenceOfElementLocated(By.id("identifierId")));
 		
-		 System.out.println(driver.getWindowHandles());
+		 //System.out.println(driver.getWindowHandles());
 		// System.out.println(driver.getWindowHandle());
 		
 		
@@ -193,32 +193,32 @@ public class TangerinoTest {
 	
 		
 		
-		 apropriacaoHomePage.preencherEmail();
-		 Thread.sleep(2000);
-		 apropriacaoHomePage.butonProximoGoogle();
-		 Thread.sleep(2000);
-		 apropriacaoHomePage.preencher();
-		 apropriacaoHomePage.butonProximoGoogle2();
+		 //apropriacaoHomePage.preencherEmail();
+		 //Thread.sleep(2000);
+		 //apropriacaoHomePage.butonProximoGoogle();
+		 //Thread.sleep(2000);
+		 //apropriacaoHomePage.preencher();
+		 //apropriacaoHomePage.butonProximoGoogle2();
 		
-		 Thread.sleep(5000);
-		 driver.switchTo().window((String) driver.getWindowHandles().toArray()[1]);
+		 //Thread.sleep(5000);
+		 //driver.switchTo().window((String) driver.getWindowHandles().toArray()[1]);
 		
-		 Thread.sleep(5000);
+		 //Thread.sleep(5000);
 		
-		 apropriacaoHomePage.scrollar();
-		 Thread.sleep(2000);
-		 apropriacaoPage.clicarComboCliente();
-		 Thread.sleep(2000);
-		 apropriacaoPage.clicarClienteAfya();
-		 Thread.sleep(3000);
-		 apropriacaoPage.clicarMenuProjeto();
-		 Thread.sleep(1000);
-		 apropriacaoPage.selecionarProjetoAfya();
-		 apropriacaoPage.clicarMenuTipoAtividade();
-		 Thread.sleep(1000);
-		 apropriacaoPage.opcaoMontagemAmbiente();
-		 apropriacaoPage.preencherAtividade("Automação app Conecta - Funcionalidade: Exame Admissional");
-		 apropriacaoPage.preencherHoraInicio(horaEntradaTrabalho);
+		 //apropriacaoHomePage.scrollar();
+//		 Thread.sleep(2000);
+//		 apropriacaoPage.clicarComboCliente();
+//		 Thread.sleep(2000);
+//		 apropriacaoPage.clicarClienteAfya();
+//		 Thread.sleep(3000);
+//		 apropriacaoPage.clicarMenuProjeto();
+//		 Thread.sleep(1000);
+//		 apropriacaoPage.selecionarProjetoAfya();
+//		 apropriacaoPage.clicarMenuTipoAtividade();
+//		 Thread.sleep(1000);
+//		 apropriacaoPage.opcaoMontagemAmbiente();
+//		 apropriacaoPage.preencherAtividade("Automação app Conecta - Funcionalidade: Exame Admissional");
+//		 apropriacaoPage.preencherHoraInicio(horaEntradaTrabalho);
 		// apropriacaoPage.preencherHoraInicio("01:00");
 		
 		// Thread.sleep(500);
