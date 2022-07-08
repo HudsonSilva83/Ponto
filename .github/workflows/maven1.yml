@@ -25,7 +25,7 @@ jobs:
     - name: Install Google Chrome 
       run: |
   
-            chmod +x google-chrome-stable_current_amd64. deb
+           chmod -R 777 directory
 
                           ./scripts/InstallChrome.sh
     - name: Build with Maven
