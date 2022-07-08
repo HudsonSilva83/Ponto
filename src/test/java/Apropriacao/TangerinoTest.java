@@ -166,7 +166,8 @@ public class TangerinoTest {
 		
 		System.out.println("HUDSON " + driver.getWindowHandle());
 		Thread.sleep(4000);
-		apropriacaoPage.clicarComboCliente();
+		//apropriacaoPage.clicarComboCliente();
+		driver.findElement(By.xpath("//*[@id=\"ngb-nav-0-panel\"]/div/div/form/div[1]/div[1]/ng-select")).click();
 		Thread.sleep(4000);
 		apropriacaoPage.clicarClienteAfya();
 		Thread.sleep(3000);
