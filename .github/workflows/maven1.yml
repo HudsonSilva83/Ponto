@@ -11,7 +11,7 @@ on:
 jobs:
   build:
 
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: browser-actions/setup-chrome@latest
@@ -21,6 +21,7 @@ jobs:
     
         
       with:
+        chromedriver-version: '99.0.4844.51'
         java-version: '1.8'
         server-id: github 
         settings-path: ${{ github.workspace }} 
