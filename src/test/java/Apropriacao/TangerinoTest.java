@@ -154,7 +154,7 @@ public class TangerinoTest {
 		Thread.sleep(8000);
 		//apropriacaoHomePage.preencher();
 		
-		driver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys("Hpereira7");
+		driver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys("@AnnaIra83");
 		apropriacaoHomePage.butonProximoGoogle2();
 
 		Thread.sleep(5000);
