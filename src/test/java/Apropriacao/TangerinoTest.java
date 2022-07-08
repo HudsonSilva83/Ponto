@@ -31,24 +31,24 @@ public class TangerinoTest {
 	private ApropriacaoPage apropriacaoPage;
 	private AmazonHomePage amazonHomePage;
 
-
 	// RODAR JENKINS A CADA 5 MINUTOS H/5 * * * *
 	@BeforeEach
 	public void inicializa() {
 
-		//System.setProperty("webdriver.chrome.driver", "local/do/chromedriver/no/SISTEMA"); 
-		
-		
-		//System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+		// System.setProperty("webdriver.chrome.driver",
+		// "local/do/chromedriver/no/SISTEMA");
 
-	
+		// System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+
 		ChromeOptions options = new ChromeOptions();
-		 options.addArguments("--no-sandbox");
-    	 options.addArguments("--disable-dev-shm-usage");
-    	 options.addArguments("--headless");
-    	 driver = new ChromeDriver(options);
-    	 driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);  
-    	 driver.manage().window().maximize();  
+		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-dev-shm-usage");
+		options.addArguments("--headless");
+		options.addArguments("--window-size=1200,800");
+		options.addArguments("-user-agent=\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36\"");
+		driver = new ChromeDriver(options);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
 
 //		options.addArguments("disable-popup-blocking");	
 //		options.addArguments("--start-maximized");
@@ -57,43 +57,31 @@ public class TangerinoTest {
 //		options.addArguments("--headless");
 //		options.addArguments("-disable-gpu");
 
-		
-		
-	
-		
-		
-		//driver = new ChromeDriver();
+		// driver = new ChromeDriver();
 
-		
-		
-		
-	    //driver = new FirefoxDriver();
-			// System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
-		
-		
-			// FirefoxOptions options = new FirefoxOptions();
-			// options.addArguments("--headless");
-			// driver = new FirefoxDriver(options);
-			//driver = new FirefoxDriver();
-		
-		
+		// driver = new FirefoxDriver();
+		// System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
+
+		// FirefoxOptions options = new FirefoxOptions();
+		// options.addArguments("--headless");
+		// driver = new FirefoxDriver(options);
+		// driver = new FirefoxDriver();
+
 	}
 
 	@Test
 	public void AbrirTagerino() throws InterruptedException, EmailException {
 
-		
-   
-		driver.get("https://app.tangerino.com.br/Tangerino/pages/apropriacao-horas?funcionalidade=5&wicket:pageMapName=wicket-0");
-		
+		driver.get(
+				"https://app.tangerino.com.br/Tangerino/pages/apropriacao-horas?funcionalidade=5&wicket:pageMapName=wicket-0");
+
 		base = new BasePage(driver);
 		tangerinoApropriacaoPage = new TangerinoApropriacaoHorasPage(driver);
 		tangerinoHomePage = new TangerinoHomePage(driver);
 		apropriacaoHomePage = new ApropriacaoHomePage(driver);
 		apropriacaoPage = new ApropriacaoPage(driver);
 		amazonHomePage = new AmazonHomePage(driver);
-		
-		
+
         tangerinoHomePage.scrollar();
 		
 		tangerinoHomePage.menuColaborador();
@@ -117,7 +105,7 @@ public class TangerinoTest {
 		
 		Date dataHoraAtual = new Date();
 		String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
-		String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
+		//String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
 
 		
 		
@@ -133,106 +121,73 @@ public class TangerinoTest {
 
 		// esperar voltar o servidor
 
+		// ate aqui ok
 
-		//ate aqui ok
-		
-		String horaEntradaTrabalho = (tangerinoApropriacaoPage.obterHoraInicialEntrada());
-//		String horaSaidaAlmoco = (tangerinoApropriacaoPage.obterHoraSaidaAlmoco());
-//				
+		 String horaEntradaTrabalho =(tangerinoApropriacaoPage.obterHoraInicialEntrada());
+		 String horaSaidaAlmoco = (tangerinoApropriacaoPage.obterHoraSaidaAlmoco());
+				
 //		String horaEntradaVolta = (tangerinoApropriacaoPage.obterHoraEntradaVolta());
-//		String horaSaidaTrabalho = (tangerinoApropriacaoPage.obterHoraSaidaTrabalho());
+//	    String horaSaidaTrabalho = (tangerinoApropriacaoPage.obterHoraSaidaTrabalho());
 
-		System.out.println("testeHudson " + horaEntradaTrabalho);
-//		System.out.println(horaSaidaAlmoco);
+		System.out.println("Entrada " + horaEntradaTrabalho);
+		System.out.println("Saida " + horaSaidaAlmoco);
 //		System.out.println(horaEntradaVolta);
 //		System.out.println(horaSaidaTrabalho);
+
+		// ----------------Apropriacao -------------------------
+
+		apropriacaoHomePage.acessarPaginaApropriacao(1, "https://app.frwkapp.com.br/apropriacao");
+
+		Thread.sleep(2000);
+
+		apropriacaoHomePage.butonGoogle();
+		Thread.sleep(3000);
+
+		driver.switchTo().window((String) driver.getWindowHandles().toArray()[2]);
+		Thread.sleep(3000);
+		driver.manage().window().maximize();
+
+		Thread.sleep(2000);
+		apropriacaoHomePage.preencherEmail();
+		Thread.sleep(2000);
+		apropriacaoHomePage.butonProximoGoogle();
+		Thread.sleep(8000);
+		//apropriacaoHomePage.preencher();
 		
-	//----------------Apropriacao -------------------------
+		driver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys("Hpereira7");
+		apropriacaoHomePage.butonProximoGoogle2();
+
+		Thread.sleep(5000);
+		driver.switchTo().window((String) driver.getWindowHandles().toArray()[1]);
+
+		Thread.sleep(5000);
+
+		apropriacaoHomePage.scrollar();
+		Thread.sleep(2000);
+		apropriacaoPage.clicarComboCliente();
+		Thread.sleep(2000);
+		apropriacaoPage.clicarClienteAfya();
+		Thread.sleep(3000);
+		apropriacaoPage.clicarMenuProjeto();
+		Thread.sleep(1000);
+		apropriacaoPage.selecionarProjetoAfya();
+		apropriacaoPage.clicarMenuTipoAtividade();
+		Thread.sleep(1000);
+		apropriacaoPage.opcaoMontagemAmbiente();
+		apropriacaoPage.preencherAtividade("Automação app Conecta - Funcionalidade: Exame Admissional");
+		apropriacaoPage.preencherHoraInicio(horaEntradaTrabalho);
 		
+
+		Thread.sleep(500);
+		apropriacaoPage.preencherHoraFinal(horaSaidaAlmoco);
 		
-		//apropriacaoHomePage.acessarPaginaApropriacao(1,"https://app.frwkapp.com.br/apropriacao");
-		
-//		((JavascriptExecutor) driver).executeScript("window.open()");
-//		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-//		driver.switchTo().window(tabs.get(1));
-//		driver.get("https://app.frwkapp.com.br/apropriacao");
-		
-		
-	
-		//Thread.sleep(2000);
-		
-		
-		
-		
-		 //apropriacaoHomePage.butonGoogle();
-		// Thread.sleep(3000);
-		
-		// driver.switchTo().window((String) driver.getWindowHandles().toArray()[2]);
-		
-		// //driver.manage().window().maximize();
-		
-		// Thread.sleep(2000);
-		// WebElement firstResult = new WebDriverWait(driver, Duration.ofSeconds(50))
-		//         .until(ExpectedConditions.presenceOfElementLocated(By.id("identifierId")));
-		
-		 //System.out.println(driver.getWindowHandles());
-		// System.out.println(driver.getWindowHandle());
-		
-		
-		
-//		
-		//System.out.println(firstResult);
-		//System.out.println(driver.findElement(By.id("identifierId"))); 
-		//Thread.sleep(5000);
-		
-//		String e = "hudsonsilva@frwk.com.br";
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("document.getElementById('identifierId').value = '"+e+"'");
-		
-		
-	
-		
-		
-		 //apropriacaoHomePage.preencherEmail();
-		 //Thread.sleep(2000);
-		 //apropriacaoHomePage.butonProximoGoogle();
-		 //Thread.sleep(2000);
-		 //apropriacaoHomePage.preencher();
-		 //apropriacaoHomePage.butonProximoGoogle2();
-		
-		 //Thread.sleep(5000);
-		 //driver.switchTo().window((String) driver.getWindowHandles().toArray()[1]);
-		
-		 //Thread.sleep(5000);
-		
-		 //apropriacaoHomePage.scrollar();
-//		 Thread.sleep(2000);
-//		 apropriacaoPage.clicarComboCliente();
-//		 Thread.sleep(2000);
-//		 apropriacaoPage.clicarClienteAfya();
-//		 Thread.sleep(3000);
-//		 apropriacaoPage.clicarMenuProjeto();
-//		 Thread.sleep(1000);
-//		 apropriacaoPage.selecionarProjetoAfya();
-//		 apropriacaoPage.clicarMenuTipoAtividade();
-//		 Thread.sleep(1000);
-//		 apropriacaoPage.opcaoMontagemAmbiente();
-//		 apropriacaoPage.preencherAtividade("Automação app Conecta - Funcionalidade: Exame Admissional");
-//		 apropriacaoPage.preencherHoraInicio(horaEntradaTrabalho);
-		// apropriacaoPage.preencherHoraInicio("01:00");
-		
-		// Thread.sleep(500);
-		// //apropriacaoPage.preencherHoraFinal(horaSaidaAlmoco);
-		// apropriacaoPage.preencherHoraFinal("01:30");
-		
-		// Thread.sleep(1000);
-		// apropriacaoPage.botaoRegistrar();
-		// Thread.sleep(3000);
-		// String mensagem = (apropriacaoPage.obterTexto(By.xpath("/html/body/app-root/app-toast-notification/div/div")));
-		// System.out.println(mensagem);
-		
-		
-		
+
+		Thread.sleep(1000);
+		apropriacaoPage.botaoRegistrar();
+		Thread.sleep(3000);
+		String mensagem = (apropriacaoPage.obterTexto(By.xpath("/html/body/app-root/app-toast-notification/div/div")));
+		System.out.println("Registrado " + mensagem);
+
 	}
 
 	@AfterEach
