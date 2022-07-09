@@ -214,7 +214,7 @@ public class TangerinoTest {
 //		 Apropriação criada com sucesso.//mudei
 //
 		NotificarPorEmailTest enviarEmail = new NotificarPorEmailTest();
-		enviarEmail.EnviarEmail("Pontos registrados  "+ mensagem);
+		enviarEmail.EnviarEmail("Pontos registrados  "+ mensagemSegundo);
 		
 
 		// horas configurar jenkins
