@@ -82,6 +82,7 @@ public class TangerinoTest {
 		apropriacaoPage = new ApropriacaoPage(driver);
 		amazonHomePage = new AmazonHomePage(driver);
 
+		Thread.sleep(1000);
         tangerinoHomePage.scrollar();
 		
 		tangerinoHomePage.menuColaborador();
@@ -105,10 +106,10 @@ public class TangerinoTest {
 		
 		Date dataHoraAtual = new Date();
 		String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
-		//String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
-
-		
-		
+		String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
+//
+//		
+//		
 		tangerinoApropriacaoPage.preencherDataInicial(data);
 		Thread.sleep(3000);
 		
@@ -118,21 +119,21 @@ public class TangerinoTest {
 		Thread.sleep(2000);
 		tangerinoApropriacaoPage.butonCosultar();
 		Thread.sleep(2000);
-
-		// esperar voltar o servidor
-
-		// ate aqui ok
-
+//
+//		// esperar voltar o servidor
+//
+//		// ate aqui ok
+//
 		 String horaEntradaTrabalho =(tangerinoApropriacaoPage.obterHoraInicialEntrada());
 		 String horaSaidaAlmoco = (tangerinoApropriacaoPage.obterHoraSaidaAlmoco());
 				
-//		String horaEntradaVolta = (tangerinoApropriacaoPage.obterHoraEntradaVolta());
-//	    String horaSaidaTrabalho = (tangerinoApropriacaoPage.obterHoraSaidaTrabalho());
+		String horaEntradaVolta = (tangerinoApropriacaoPage.obterHoraEntradaVolta());
+	    String horaSaidaTrabalho = (tangerinoApropriacaoPage.obterHoraSaidaTrabalho());
 
 		System.out.println("Entrada " + horaEntradaTrabalho);
 		System.out.println("Saida " + horaSaidaAlmoco);
-//		System.out.println(horaEntradaVolta);
-//		System.out.println(horaSaidaTrabalho);
+		System.out.println(horaEntradaVolta);
+		System.out.println(horaSaidaTrabalho);
 
 		// ----------------Apropriacao -------------------------
 
@@ -151,7 +152,7 @@ public class TangerinoTest {
 		apropriacaoHomePage.preencherEmail();
 		Thread.sleep(2000);
 		apropriacaoHomePage.butonProximoGoogle();
-		Thread.sleep(8000);
+		Thread.sleep(3000);
 		//apropriacaoHomePage.preencher();
 		
 		driver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys("@AnnaIra83");
@@ -164,7 +165,7 @@ public class TangerinoTest {
 
 		apropriacaoHomePage.scrollar();
 		
-		System.out.println("HUDSON " + driver.getWindowHandle());
+	
 		Thread.sleep(4000);
 		//apropriacaoPage.clicarComboCliente();
 		driver.findElement(By.xpath("//*[@id=\"ngb-nav-0-panel\"]/div/div/form/div[1]/div[1]/ng-select")).click();
@@ -179,7 +180,6 @@ public class TangerinoTest {
 		apropriacaoPage.opcaoMontagemAmbiente();
 		apropriacaoPage.preencherAtividade("Automação app Conecta - Funcionalidade: Exame Admissional");
 		apropriacaoPage.preencherHoraInicio(horaEntradaTrabalho);
-		
 
 		Thread.sleep(500);
 		apropriacaoPage.preencherHoraFinal(horaSaidaAlmoco);
@@ -189,14 +189,77 @@ public class TangerinoTest {
 		apropriacaoPage.botaoRegistrar();
 		Thread.sleep(3000);
 		String mensagem = (apropriacaoPage.obterTexto(By.xpath("/html/body/app-root/app-toast-notification/div/div")));
-		System.out.println("Registrado " + mensagem);
+
+		apropriacaoPage.clicarComboCliente();
+		Thread.sleep(2000);
+		apropriacaoPage.clicarClienteAfya();
+		Thread.sleep(3000);
+		apropriacaoPage.clicarMenuProjeto();
+		Thread.sleep(1000);
+		apropriacaoPage.selecionarProjetoAfya();
+		apropriacaoPage.clicarMenuTipoAtividade();
+		Thread.sleep(1000);
+		apropriacaoPage.opcaoMontagemAmbiente();
+		apropriacaoPage.preencherAtividade("Automação app Conecta - Funcionalidade: Exame Admissional");
+		apropriacaoPage.preencherHoraInicio(horaEntradaVolta);
+		Thread.sleep(500);
+		apropriacaoPage.preencherHoraFinal(horaSaidaTrabalho);
+		
+		Thread.sleep(1000);
+		apropriacaoPage.botaoRegistrar();
+		Thread.sleep(3000);
+		String mensagemSegundo = (apropriacaoPage.obterTexto(By.xpath("/html/body/app-root/app-toast-notification/div/div")));
+
+		
+//		 Apropriação criada com sucesso.//mudei
+//
+		NotificarPorEmailTest enviarEmail = new NotificarPorEmailTest();
+		enviarEmail.EnviarEmail("Pontos registrados  "+ mensagem);
+		
+
+		// horas configurar jenkins
+		// https://stackoverflow.com/questions/12472645/how-do-i-schedule-jobs-in-jenkins?answertab=trending#tab-top
+
+		amazonHomePage.acessarPaginaAmazon(2, "https://alexa.amazon.com.br/");
+		amazonHomePage.autenticarAmazon();
+		Thread.sleep(7000);
+		amazonHomePage.clicarMenuLembretesAlarme();
+		Thread.sleep(1000);
+		amazonHomePage.butonAdicionarLembretes();
+		amazonHomePage.escreverlembrete("Oi Hudson Hoje o seu ponto foi registrado com sucesso com a seguinte mensagem "+ mensagem);
+		amazonHomePage.clicarData();
+		// Thread.sleep(3000);
+		// amazonHomePage.enterData();
+		Thread.sleep(3000);
+
+		amazonHomePage.clicarHora();
+		Thread.sleep(1000);
+		amazonHomePage.clicarHora();
+		Thread.sleep(500);
+		
+		
+		dataHoraAtual.setMinutes(dataHoraAtual.getMinutes() + 5);
+		String horaA = new SimpleDateFormat("HH:mm").format(dataHoraAtual);
+		System.out.println("Aqui está a hora" + horaA);
+		
+	
+		amazonHomePage.setarHora(hora);
+		Thread.sleep(500);
+		amazonHomePage.enterHora();
+		Thread.sleep(500);
+		amazonHomePage.clicaComboselect();
+		Thread.sleep(500);
+		amazonHomePage.select();
+		Thread.sleep(1000);
+		amazonHomePage.butonSalvar();
+
 
 	}
 
 	@AfterEach
 	public void finalizar() {
 
-		//driver.quit();
+		driver.quit();
 
 	}
 }
